@@ -1,0 +1,9 @@
+{
+  "name": "@yourproject/privacy-contracts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node -e \"const cp=require('child_process');const path=require('path');cp.execSync('npx hardhat test packages/contracts/test',{cwd:path.resolve(process.cwd(),'..','..'),stdio:'inherit',shell:true});\""
+  },
+  "dependencies": {}
+}
