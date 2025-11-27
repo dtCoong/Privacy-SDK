@@ -77,7 +77,7 @@ export class RingSignature {
 
   static async createRingSignature(message, publicKeysHex, signerSecretKeyHex, signerIndex) {
     const n = publicKeysHex.length;
-    // Dùng TextEncoder để khớp với logic cũ đã chạy đúng
+    // Dùng TextEncoder 
     const msgBytes = typeof message === 'string' ? new TextEncoder().encode(message) : message;
     
     const x = BigInt('0x' + signerSecretKeyHex); 

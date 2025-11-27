@@ -7,7 +7,7 @@ async function runTests() {
     console.log("\n[SETUP] Đang khởi tạo Ring và Keys...");
     const ringSize = 5;
     const ringKeys = []; 
-    for (let i = 0; i < ringSize; i++) {
+    for (let i = 0; i < ringSize; i++) {    
         ringKeys.push(RingSignature.generateKeyPair());
     }
     

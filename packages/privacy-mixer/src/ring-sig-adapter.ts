@@ -10,4 +10,4 @@ export class RingSignature {
     return true; 
   }
 }
-// ... export các hàm generateKeypair v.v.
+// export các hàm generateKeypair v.v.
