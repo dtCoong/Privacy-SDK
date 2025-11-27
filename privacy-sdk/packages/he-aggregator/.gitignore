@@ -1,0 +1,62 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Generated circuit files
+circuits/*.r1cs
+circuits/*.sym
+circuits/*.zkey
+circuits/transfer_js/
+circuits/input.json
+
+# Powers of Tau files
+*.ptau
+
+# Build output
+build/
+dist/
+*.wasm
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+combined.log
+error.log
+
+# Testing
+coverage/
+.nyc_output/
+benchmarks-output/*.csv
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Backup files
+*.bak
+*.backup
+
+# Keys (NEVER commit private keys!)
+*.key
+*.pem
+*_key.json
+verification_key.json
+
+# OS
+Thumbs.db
+.DS_Store

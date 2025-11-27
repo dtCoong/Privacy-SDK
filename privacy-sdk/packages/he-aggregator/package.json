@@ -1,0 +1,34 @@
+{
+  "name": "he-aggregator",
+  "version": "1.0.0",
+  "main": "dist/aggregator.js",
+  "types": "dist/aggregator.d.ts",
+  "scripts": {
+    "setup": "node setup_circuit.js",
+    "generate": "node generate_input.js",
+    "test:logic": "node test_logic.js",
+    "test:proof": "node test_simple.js",
+    "test:all": "node run_all.js",
+    "test:quick": "node run_all.js --skip-proof",
+    "build": "circom circuits/transfer.circom --r1cs --wasm --sym -o ./circuits",
+    "clean": "node -e \"require('fs').rmSync('circuits', {recursive:true, force:true})\" && node -e \"require('fs').rmSync('powersOfTau28_hez_final_12.ptau', {force:true})\"",
+    "bench": "ts-node src/benchmarks/run_benchmarks.ts",
+    "seal-demo": "python src/python/seal_demo.py",
+    "plots": "python src/python/plots.py",
+    "bench:zk": "ts-node src/benchmarks/run_full_pipeline.ts"
+  },
+  "dependencies": {
+    "@noble/curves": "^1.4.0",
+    "@noble/hashes": "^1.4.0",
+    "circomlibjs": "^0.1.7",
+    "csv-writer": "^1.6.0",
+    "ethers": "^6.13.0",
+    "snarkjs": "^0.7.4"
+  },
+  "devDependencies": {
+    "@types/snarkjs": "^0.7.9",
+    "circomlib": "^2.0.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.0"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "privacy-sdk",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Privacy SDK Monorepo",
+  "scripts": {
+    "dev": "pnpm --filter \"@privacy-sdk/*\" run dev",
+    "build": "pnpm --filter \"@privacy-sdk/*\" run build",
+    "test": "pnpm --filter \"@privacy-sdk/*\" run test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^24.9.2"
+  },
+  "dependencies": {
+    "circomlibjs": "^0.1.7"
+  }
+}

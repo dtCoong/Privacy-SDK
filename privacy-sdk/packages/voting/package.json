@@ -1,0 +1,29 @@
+{
+  "name": "@privacy-sdk/voting",
+  "version": "1.0.0",
+  "description": "Anonymous Voting System using Privacy SDK",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest"
+  },
+  "keywords": [
+    "voting",
+    "privacy",
+    "anonymous",
+    "blockchain"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@privacy-sdk/core": "workspace:*",
+    "ethers": "^6.15.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.9.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.5"
+  }
+}
