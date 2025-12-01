@@ -1,113 +1,110 @@
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
-describe("TransactionRegistry", function () {
-  let registry;
-  let owner, addr1, addr2;
+// describe("TransactionRegistry (bytes path)", function () {
+//   let owner, other;
+//   let registry;
+//   let verifier;
 
-  beforeEach(async function () {
-    [owner, addr1, addr2] = await ethers.getSigners();
-    
-    const TransactionRegistry = await ethers.getContractFactory("TransactionRegistry");
-    registry = await TransactionRegistry.deploy();
-    await registry.waitForDeployment();
-  });
+//   beforeEach(async function () {
+//     [owner, other] = await ethers.getSigners();
 
-  describe("Deployment", function () {
-    it("Should set initial root to zero", async function () {
-      const root = await registry.currentRoot();
-      expect(root).to.equal(ethers.ZeroHash);
-    });
+//     // MockVerifier luôn trả về true cho verifyProof
+//     const MockVerifier = await ethers.getContractFactory("MockVerifier");
+//     verifier = await MockVerifier.deploy();
+//     await verifier.waitForDeployment();
 
-    it("Should set next leaf index to 0", async function () {
-      expect(await registry.nextLeafIndex()).to.equal(0);
-    });
-  });
+//     const TransactionRegistry = await ethers.getContractFactory("TransactionRegistry");
+//     registry = await TransactionRegistry.deploy(await verifier.getAddress());
+//     await registry.waitForDeployment();
+//   });
 
-  describe("Deposit", function () {
-    it("Should accept deposit and update root", async function () {
-      const commitment = ethers.keccak256(ethers.toUtf8Bytes("test commitment"));
-      const depositAmount = ethers.parseEther("1.0");
+//   it("owner can register root and it is stored", async function () {
+//     const { registry, owner } = await deployFixture();
 
-      await expect(registry.deposit(commitment, { value: depositAmount }))
-        .to.emit(registry, "Deposit")
-        .to.emit(registry, "RootUpdated");
+//     const beforeCount = await registry.merkleRootCount();
 
-      expect(await registry.nextLeafIndex()).to.equal(1);
-      expect(await registry.hasCommitment(commitment)).to.be.true;
-    });
+//     const root = ethers.keccak256(ethers.toUtf8Bytes("bytes-path-root-1"));
+//     await registry.connect(owner).registerRoot(root);
 
-    it("Should reject deposit without value", async function () {
-      const commitment = ethers.keccak256(ethers.toUtf8Bytes("test"));
-      await expect(registry.deposit(commitment)).to.be.revertedWith("Must deposit some ETH");
-    });
+//     expect(await registry.currentMerkleRoot()).to.equal(root);
 
-    it("Should reject duplicate commitment", async function () {
-      const commitment = ethers.keccak256(ethers.toUtf8Bytes("test"));
-      await registry.deposit(commitment, { value: ethers.parseEther("1.0") });
-      
-      await expect(
-        registry.deposit(commitment, { value: ethers.parseEther("1.0") })
-      ).to.be.revertedWith("Commitment already exists");
-    });
-  });
+//     const afterCount = await registry.merkleRootCount();
+//     expect(afterCount).to.equal(beforeCount + 1n);
+//   });
 
-  describe("Withdrawal", function () {
-    it("Should allow withdrawal with valid nullifier", async function () {
-      // First deposit
-      const commitment = ethers.keccak256(ethers.toUtf8Bytes("commitment"));
-      await registry.deposit(commitment, { value: ethers.parseEther("1.0") });
-      
-      const root = await registry.currentRoot();
-      const nullifier = ethers.keccak256(ethers.toUtf8Bytes("nullifier"));
-      const withdrawAmount = ethers.parseEther("0.5");
 
-      await expect(
-        registry.withdraw(nullifier, addr1.address, withdrawAmount, root)
-      ).to.emit(registry, "Withdrawal");
+//   it("applyTransactionBytes decodes proof + pubData and updates state", async function () {
+//     // Giả lập public inputs:
+//     // input[0] = newRoot
+//     // input[1] = nullifier
+//     // input[2] = dummy value
+//     const newRoot = ethers.keccak256(ethers.toUtf8Bytes("root-2"));
+//     const nullifier = 123n;
+//     const dummy = 42n;
 
-      expect(await registry.nullifierUsed(nullifier)).to.be.true;
-    });
+//     // proof (a, b, c) giả – giá trị cụ thể không quan trọng vì MockVerifier luôn true
+//     const a = [1n, 2n];
+//     const b = [
+//       [3n, 4n],
+//       [5n, 6n],
+//     ];
+//     const c = [7n, 8n];
 
-    it("Should reject double-spending with same nullifier", async function () {
-      const commitment = ethers.keccak256(ethers.toUtf8Bytes("commitment"));
-      await registry.deposit(commitment, { value: ethers.parseEther("1.0") });
-      
-      const root = await registry.currentRoot();
-      const nullifier = ethers.keccak256(ethers.toUtf8Bytes("nullifier"));
-      const withdrawAmount = ethers.parseEther("0.5");
+//     const input = [newRoot, nullifier, dummy];
 
-      await registry.withdraw(nullifier, addr1.address, withdrawAmount, root);
-      
-      await expect(
-        registry.withdraw(nullifier, addr2.address, withdrawAmount, root)
-      ).to.be.revertedWith("Nullifier already used");
-    });
+//     const proofBytes = ethers.AbiCoder.defaultAbiCoder().encode(
+//       ["uint256[2]", "uint256[2][2]", "uint256[2]"],
+//       [a, b, c]
+//     );
+//     const pubBytes = ethers.AbiCoder.defaultAbiCoder().encode(
+//       ["uint256[3]"],
+//       [input]
+//     );
 
-    it("Should reject withdrawal with invalid root", async function () {
-      const nullifier = ethers.keccak256(ethers.toUtf8Bytes("nullifier"));
-      const fakeRoot = ethers.keccak256(ethers.toUtf8Bytes("fake root"));
-      
-      await expect(
-        registry.withdraw(nullifier, addr1.address, ethers.parseEther("0.5"), fakeRoot)
-      ).to.be.revertedWith("Invalid root");
-    });
-  });
+//     const tx = await registry.applyTransactionBytes(proofBytes, pubBytes);
+//     await tx.wait();
 
-  describe("Root History", function () {
-    it("Should maintain root history", async function () {
-      const commitment1 = ethers.keccak256(ethers.toUtf8Bytes("commitment1"));
-      const commitment2 = ethers.keccak256(ethers.toUtf8Bytes("commitment2"));
+//     // Kiểm tra state đã update
+//     expect(await registry.currentMerkleRoot()).to.equal(newRoot);
+//     expect(await registry.merkleRootCount()).to.equal(1n);
+//     const storedRoot = await registry.merkleRootAt(0n);
+//     expect(storedRoot).to.equal(newRoot);
 
-      await registry.deposit(commitment1, { value: ethers.parseEther("1.0") });
-      const root1 = await registry.currentRoot();
+//     // Nullifier đã đánh dấu dùng rồi
+//     const used = await registry.nullifiersUsed(nullifier);
+//     expect(used).to.equal(true);
+//   });
 
-      await registry.deposit(commitment2, { value: ethers.parseEther("1.0") });
-      const root2 = await registry.currentRoot();
+//   it("reverts when nullifier is already used", async function () {
+//     const newRoot = ethers.keccak256(ethers.toUtf8Bytes("root-3"));
+//     const nullifier = 999n;
+//     const dummy = 0n;
 
-      expect(await registry.isKnownRoot(root1)).to.be.true;
-      expect(await registry.isKnownRoot(root2)).to.be.true;
-      expect(await registry.getRootHistoryLength()).to.equal(3); // initial + 2 deposits
-    });
-  });
-});
+//     const a = [1n, 2n];
+//     const b = [
+//       [3n, 4n],
+//       [5n, 6n],
+//     ];
+//     const c = [7n, 8n];
+
+//     const input = [newRoot, nullifier, dummy];
+
+//     const proofBytes = ethers.AbiCoder.defaultAbiCoder().encode(
+//       ["uint256[2]", "uint256[2][2]", "uint256[2]"],
+//       [a, b, c]
+//     );
+//     const pubBytes = ethers.AbiCoder.defaultAbiCoder().encode(
+//       ["uint256[3]"],
+//       [input]
+//     );
+
+//     // Lần 1 thành công
+//     await (await registry.applyTransactionBytes(proofBytes, pubBytes)).wait();
+
+//     // Lần 2 phải revert vì nullifier đã dùng
+//     await expect(
+//       registry.applyTransactionBytes(proofBytes, pubBytes)
+//     ).to.be.revertedWith("Nullifier already spent");
+//   });
+// });

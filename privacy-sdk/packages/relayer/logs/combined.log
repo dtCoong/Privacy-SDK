@@ -368,3 +368,54 @@
 {"level":"info","message":"Submit endpoint: http://localhost:3001/api/v1/submit","timestamp":"2025-11-15T08:50:24.761Z"}
 {"level":"info","message":"Status endpoint: http://localhost:3001/api/v1/status/:txId","timestamp":"2025-11-15T08:50:24.762Z"}
 {"level":"info","message":"Queue stats: http://localhost:3001/api/v1/queue/stats","timestamp":"2025-11-15T08:50:24.762Z"}
+{"level":"info","message":"Initializing Relayer Service...","timestamp":"2025-11-29T15:49:57.139Z"}
+{"address":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","level":"info","message":"RelayService initialized","nonce":1,"timestamp":"2025-11-29T15:49:57.228Z"}
+{"address":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","balance":"9999.999163379249043862 ETH","level":"info","message":"Relayer initialized","nonce":1,"timestamp":"2025-11-29T15:49:57.248Z"}
+{"level":"info","message":"Relayer service running on port 3001","timestamp":"2025-11-29T15:49:57.257Z"}
+{"level":"info","message":"Health check: http://localhost:3001/health","timestamp":"2025-11-29T15:49:57.258Z"}
+{"level":"info","message":"Info endpoint: http://localhost:3001/info","timestamp":"2025-11-29T15:49:57.258Z"}
+{"level":"info","message":"Submit endpoint: http://localhost:3001/api/v1/submit","timestamp":"2025-11-29T15:49:57.258Z"}
+{"level":"info","message":"Status endpoint: http://localhost:3001/api/v1/status/:txId","timestamp":"2025-11-29T15:49:57.258Z"}
+{"level":"info","message":"Queue stats: http://localhost:3001/api/v1/queue/stats","timestamp":"2025-11-29T15:49:57.258Z"}
+{"level":"info","message":"Initializing Relayer Service...","timestamp":"2025-11-29T18:24:15.531Z"}
+{"address":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","level":"info","message":"RelayService initialized","nonce":2,"timestamp":"2025-11-29T18:24:15.617Z"}
+{"address":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","balance":"9999.998330228504045702 ETH","level":"info","message":"Relayer initialized","nonce":2,"timestamp":"2025-11-29T18:24:15.638Z"}
+{"level":"info","message":"Relayer service running on port 3001","timestamp":"2025-11-29T18:24:15.645Z"}
+{"level":"info","message":"Health check: http://localhost:3001/health","timestamp":"2025-11-29T18:24:15.646Z"}
+{"level":"info","message":"Info endpoint: http://localhost:3001/info","timestamp":"2025-11-29T18:24:15.646Z"}
+{"level":"info","message":"Submit endpoint: http://localhost:3001/api/v1/submit","timestamp":"2025-11-29T18:24:15.647Z"}
+{"level":"info","message":"Status endpoint: http://localhost:3001/api/v1/status/:txId","timestamp":"2025-11-29T18:24:15.648Z"}
+{"level":"info","message":"Queue stats: http://localhost:3001/api/v1/queue/stats","timestamp":"2025-11-29T18:24:15.661Z"}
+{"level":"info","message":"Initializing Relayer Service...","timestamp":"2025-11-29T18:39:28.441Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:8545","level":"error","message":"Failed to start relayer","stack":"Error: connect ECONNREFUSED 127.0.0.1:8545\n    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)","timestamp":"2025-11-29T18:39:28.523Z"}
+{"level":"info","message":"Initializing Relayer Service...","timestamp":"2025-11-29T18:39:45.182Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:8545","level":"error","message":"Failed to start relayer","stack":"Error: connect ECONNREFUSED 127.0.0.1:8545\n    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)","timestamp":"2025-11-29T18:39:45.257Z"}
+{"level":"info","message":"Initializing Relayer Service...","timestamp":"2025-11-29T18:39:46.936Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:8545","level":"error","message":"Failed to start relayer","stack":"Error: connect ECONNREFUSED 127.0.0.1:8545\n    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)","timestamp":"2025-11-29T18:39:47.001Z"}
+{"level":"info","message":"Initializing Relayer Service...","timestamp":"2025-11-29T18:46:40.232Z"}
+{"address":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","level":"info","message":"RelayService initialized","nonce":2,"timestamp":"2025-11-29T18:46:40.305Z"}
+{"address":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","balance":"9999.998330228504045702 ETH","level":"info","message":"Relayer initialized","nonce":2,"timestamp":"2025-11-29T18:46:40.330Z"}
+{"level":"info","message":"Relayer service running on port 3001","timestamp":"2025-11-29T18:46:40.336Z"}
+{"level":"info","message":"Health check: http://localhost:3001/health","timestamp":"2025-11-29T18:46:40.337Z"}
+{"level":"info","message":"Info endpoint: http://localhost:3001/info","timestamp":"2025-11-29T18:46:40.337Z"}
+{"level":"info","message":"Submit endpoint: http://localhost:3001/api/v1/submit","timestamp":"2025-11-29T18:46:40.338Z"}
+{"level":"info","message":"Status endpoint: http://localhost:3001/api/v1/status/:txId","timestamp":"2025-11-29T18:46:40.338Z"}
+{"level":"info","message":"Queue stats: http://localhost:3001/api/v1/queue/stats","timestamp":"2025-11-29T18:46:40.339Z"}
+{"level":"info","message":"Initializing Relayer Service...","timestamp":"2025-11-30T08:14:07.334Z"}
+{"address":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","level":"info","message":"RelayService initialized","nonce":0,"timestamp":"2025-11-30T08:14:07.418Z"}
+{"address":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","balance":"10000.0 ETH","level":"info","message":"Relayer initialized","nonce":0,"timestamp":"2025-11-30T08:14:07.447Z"}
+{"level":"info","message":"Relayer service running on port 3001","timestamp":"2025-11-30T08:14:07.455Z"}
+{"level":"info","message":"Health check: http://localhost:3001/health","timestamp":"2025-11-30T08:14:07.455Z"}
+{"level":"info","message":"Info endpoint: http://localhost:3001/info","timestamp":"2025-11-30T08:14:07.456Z"}
+{"level":"info","message":"Submit endpoint: http://localhost:3001/api/v1/submit","timestamp":"2025-11-30T08:14:07.457Z"}
+{"level":"info","message":"Status endpoint: http://localhost:3001/api/v1/status/:txId","timestamp":"2025-11-30T08:14:07.457Z"}
+{"level":"info","message":"Queue stats: http://localhost:3001/api/v1/queue/stats","timestamp":"2025-11-30T08:14:07.458Z"}
+{"level":"info","message":"Initializing Relayer Service...","timestamp":"2025-12-01T13:15:30.588Z"}
+{"address":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","level":"info","message":"RelayService initialized","nonce":2,"timestamp":"2025-12-01T13:15:30.671Z"}
+{"address":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","balance":"9999.998330228504045702 ETH","level":"info","message":"Relayer initialized","nonce":2,"timestamp":"2025-12-01T13:15:30.692Z"}
+{"level":"info","message":"Relayer service running on port 3001","timestamp":"2025-12-01T13:15:30.699Z"}
+{"level":"info","message":"Health check: http://localhost:3001/health","timestamp":"2025-12-01T13:15:30.699Z"}
+{"level":"info","message":"Info endpoint: http://localhost:3001/info","timestamp":"2025-12-01T13:15:30.700Z"}
+{"level":"info","message":"Submit endpoint: http://localhost:3001/api/v1/submit","timestamp":"2025-12-01T13:15:30.700Z"}
+{"level":"info","message":"Status endpoint: http://localhost:3001/api/v1/status/:txId","timestamp":"2025-12-01T13:15:30.700Z"}
+{"level":"info","message":"Queue stats: http://localhost:3001/api/v1/queue/stats","timestamp":"2025-12-01T13:15:30.700Z"}

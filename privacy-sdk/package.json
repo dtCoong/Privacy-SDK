@@ -6,9 +6,21 @@
   "scripts": {
     "dev": "pnpm --filter \"@privacy-sdk/*\" run dev",
     "build": "pnpm --filter \"@privacy-sdk/*\" run build",
-    "test": "pnpm --filter \"@privacy-sdk/*\" run test"
+    "test": "pnpm --filter \"@privacy-sdk/*\" run test",
+    "test:packages": "pnpm --filter \"@privacy-sdk/*\" run test"
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@noble/curves": "^1.9.1",
+    "@noble/hashes": "^1.4.0",
+    "ethers": "^6.15.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.14"
+  }
 }
