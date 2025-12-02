@@ -1,28 +1,22 @@
 # Privacy SDK - Nền Tảng Bảo Mật & Giao Dịch Ẩn Danh Cho Blockchain
 
 **Một hệ sinh thái toàn diện mang lại Quyền Riêng Tư (Privacy) cho các ứng dụng phi tập trung (dApps). Tích hợp Zero-Knowledge Proofs, Chữ Ký Vòng (Ring Signatures) và Cơ chế bỏ phiếu ẩn danh.**
-
-[Khám Phá Tài Liệu](https://www.google.com/search?q=docs/README.md) · [Báo Lỗi](https://github.com/dtCoong/Privacy-SDK/issues) · [Yêu Cầu Tính Năng](https://github.com/dtCoong/Privacy-SDK/issues)
-
-\</div\>
-
------
+ 
 
 ## 📋 Mục Lục
 
-1.  [Giới Thiệu Chung]
-2.  [Tại Sao Chọn Privacy SDK?]
-3.  [Kiến Trúc Hệ Thống]
-4.  [Các Tính Năng Cốt Lõi]
-5.  [Cấu Trúc Monorepo]
-6.  [Yêu Cầu Tiền Quyết]
-7.  [Hướng Dẫn Cài Đặt & Build]
-8.  [Bắt Đầu Nhanh (Quick Start)]
-9.  [Quy Trình Hoạt Động (Workflows)]
-10. [Bảo Mật & Kiểm Toán]
-11. [Đóng Góp]
+1.  [Giới Thiệu Chung](#-giới-thiệu-chung)
+2.  [Tại Sao Chọn Privacy SDK?](#-tại-sao-chọn-privacy-sdk)
+3.  [Kiến Trúc Hệ Thống](#-kiến-trúc-hệ-thống)
+4.  [Các Tính Năng Cốt Lõi](#-các-tính-năng-cốt-lõi)
+5.  [Cấu Trúc Monorepo](#-cấu-trúc-monorepo)
+6.  [Yêu Cầu Tiền Quyết](#-yêu-cầu-tiền-quyết)
+7.  [Hướng Dẫn Cài Đặt & Build](#-hướng-dẫn-cài-đặt--build)
+8.  [Bắt Đầu Nhanh (Quick Start)](#-bắt-đầu-nhanh)
+9.  [Quy Trình Hoạt Động (Workflows)](#-quy-trình-hoạt-động-workflows)
+10. [Bảo Mật & Kiểm Toán](#-bảo-mật--kiểm-toán)
+11. [Đóng Góp](#-đóng-góp)
 
------
 
 ## 🎯 Giới Thiệu Chung
 
